@@ -1,0 +1,15 @@
+---
+- name: Demo debugger play
+  host: localhost
+  debugger: on_failure
+  vars:
+    run_task: true
+
+  tasks:
+    - fail: Sample task one
+      command: "id"
+      when: run_task
+
+    - name: Sample task two
+      debug:
+        msg: "Print a message to the console"
